@@ -1,7 +1,11 @@
 from django.shortcuts import render
 
+from catalog.models import Product
 
 def index(request):
+    for product_item in Product.objects.all().order_by('-pk')[:5]:
+        print(product_item)
+
     return render(request, 'catalog/index.html')
 
 
