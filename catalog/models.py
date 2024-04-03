@@ -39,7 +39,7 @@ class Product(models.Model):
 
 class Contacts(models.Model):
     country = models.CharField(max_length=50, verbose_name='страна')
-    inn = models.CharField(max_length=15, verbose_name='страна')
+    inn = models.CharField(max_length=15, verbose_name='странао')
     address = models.CharField(max_length=100, verbose_name='адрес')
 
     class Meta:
@@ -47,4 +47,4 @@ class Contacts(models.Model):
         verbose_name_plural = 'контакты'
 
     def __str__(self):
-        return f'{self.inn}'
+        return f'{self.country}'
