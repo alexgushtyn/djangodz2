@@ -1,0 +1,31 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Автотовары",
+      "description": "Всё для вашего автомобиля"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Продукты питания",
+      "description": "Ты толстеешь - мы боготеем"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+      "name": "Колодки тормозные",
+      "description": "передние",
+      "img_preview": "",
+      "category": 1,
+      "pur_price": 1000.0,
+      "created_at": "2024-04-04T03:38:47.674Z",
+      "updated_at": "2024-04-04T03:38:47.674Z"
+    }
+  }
+]
