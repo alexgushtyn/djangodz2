@@ -33,13 +33,13 @@ class Product(models.Model):
         return f'{self.name} {self.category}'
 
     class Meta:
-        verbose_name = 'продукт'
-        verbose_name_plural = 'продукты'
+        verbose_name = 'товар'
+        verbose_name_plural = 'товары'
 
 
 class Contacts(models.Model):
     country = models.CharField(max_length=50, verbose_name='страна')
-    inn = models.CharField(max_length=15, verbose_name='странао')
+    inn = models.CharField(max_length=15, verbose_name='инн')
     address = models.CharField(max_length=100, verbose_name='адрес')
 
     class Meta:
