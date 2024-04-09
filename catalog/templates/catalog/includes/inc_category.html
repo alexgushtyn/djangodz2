@@ -2,11 +2,12 @@
     <div class="card mb-4 box-shadow">
         <div class="card-body">
             <p class="card-text">{{ object.name }}</p>
+            <p class="card-text">{{ object.description|truncatechars:100 }}</p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                    <a href="{% url 'catalog:category_auto' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">К товару</a>
+                    <a href="{% url 'catalog:category_auto' object.pk %}" type="button"
+                       class="btn btn-sm btn-outline-secondary">К товару</a>
                 </div>
-                <small class="text-muted">9 mins</small>
             </div>
         </div>
     </div>

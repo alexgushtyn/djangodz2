@@ -16,9 +16,6 @@ class Category(models.Model):
         verbose_name_plural = 'категории'
 
 
-
-
-
 class Product(models.Model):
     name = models.CharField(max_length=250, verbose_name='Наименование')
     description = models.TextField(**NULLABLE, verbose_name='Описание')
@@ -27,7 +24,6 @@ class Product(models.Model):
     pur_price = models.FloatField(verbose_name='Цена за покупку')
     created_at = models.DateTimeField(default=datetime.now, verbose_name='Дата создания(записи в БД)')
     updated_at = models.DateTimeField(default=datetime.now, verbose_name='Дата последнего изменения(записи в БД)')
-
 
     def __str__(self):
         return f'{self.name} {self.category}'

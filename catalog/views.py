@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 from catalog.models import Product, Category
 
+
 def index(request):
     context = {
         'object_list': Product.objects.all(),
@@ -19,6 +20,7 @@ def contacts(request):
     }
     return render(request, 'catalog/contacts.html', context)
 
+
 def categories(request):
 
     context = {
@@ -28,12 +30,12 @@ def categories(request):
 
     return render(request, 'catalog/categories.html', context)
 
-def category_auto(request, pk):
-    category_item = Product.objects.get(pk=pk)
-    context = {
-        'object_list': Product.objects.filter(category_id=pk),
-        'title': f'Все товары {category_item.name}',
 
+def category_auto(request, pk):
+    product = Product.objects.get(pk=pk)
+    context = {
+        'object': product,
+        'title': f'Все товары {product.name}'
     }
 
     return render(request, 'catalog/products.html', context)

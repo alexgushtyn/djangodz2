@@ -9,5 +9,4 @@ urlpatterns = [
     path('contacts/', contacts, name='contacts'),
     path('categories/', categories, name='categories'),
     path('<int:pk>/catalog/', category_auto, name='category_auto'),
-
 ]
