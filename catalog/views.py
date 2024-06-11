@@ -1,41 +1,50 @@
 from django.shortcuts import render
+from django.views.generic import ListView, CreateView, DeleteView, TemplateView, DetailView
+from catalog.models import Product, Category, Contacts, BlogPost
 
-from catalog.models import Product, Category
 
 
-def index(request):
-    context = {
-        'object_list': Product.objects.all(),
+class ProductListView(ListView):
+    model = Product
+    extra_context = {
         'title': 'CARUP! Shop',
         'description': 'Вся информация о товаре',
     }
 
-    return render(request, 'catalog/index.html', context)
 
 
-def contacts(request):
-    context = {
+class ContactTemplateView(TemplateView):
+    template_name = 'catalog/contacts.html'
+    extra_context = {
         'title': 'Контакты',
         'description': 'Наша контактная информация',
     }
-    return render(request, 'catalog/contacts.html', context)
 
 
-def categories(request):
 
-    context = {
-        'object_list': Category.objects.all(),
-        'title': 'Категории',
+class ProductDetailView(DetailView):
+    model = Product
+
+
+class CategoryListView(ListView):
+    model = Category
+    extra_context = {
+        'title': 'Категории'
     }
 
-    return render(request, 'catalog/categories.html', context)
 
 
-def category_auto(request, pk):
-    product = Product.objects.get(pk=pk)
-    context = {
-        'object': product,
-        'title': f'Все товары {product.name}'
-    }
 
-    return render(request, 'catalog/products.html', context)
+class BlogPostListView(ListView):
+    model = BlogPost
+
+
+
+class BlogPostDetailView(DetailView):
+    model = BlogPost
+
+    def get_object(self, queryset=None):
+        self.object = super().get_object(queryset)
+        self.object.view_count += 1
+        self.object.save()
+        return self.object
